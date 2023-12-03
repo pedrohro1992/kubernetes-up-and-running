@@ -1,0 +1,17 @@
+kubectl run alpaca-prod --image=gcr.io/kuar-demo/kuard-amd64:blue --labels="ver=1,app=alpaca,env=test"
+kubectl run bandicood-prod --image=gcr.io/kuar-demo/kuard-amd64:green --labels="ver=2,app=bandicood,env=prod"
+kubectl run bandicood-staging --image=gcr.io/kuar-demo/kuard-amd64:green --labels="ver=2,app=bandicood,env=staging"
+
+kubectl get pod --show-labels
+kubectl label pod alpace-prod "canary=true"
+kubectl label pod alpaca-prod  "canary=true"
+
+kubectl get pod -L canary
+kubectl label pod alpaca-prod  "canary-"
+
+kubectl get pods --selector="ver=2"
+kubectl get pods --selector="app=bandicoot,ver=2"
+kubectl get pods --selector="app=bandicood,ver=2"
+kubectl get pods --selector="app in (alpaca,bandicoot)"
+kubectl get pods --selector="app in (alpaca,bandicood)"
+kubectl delete pods --all

@@ -9,7 +9,7 @@ spec:
       path: "/var/lib/kuard"
 
   containers:
-  - image: pedroramosolivera/kuard:1.0
+  - image: "gcr.io/kuar-demo/kuard-amd64:blue"
     name: kuard
     resources:
       requests:

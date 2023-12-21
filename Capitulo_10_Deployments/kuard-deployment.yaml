@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: cacetetinho
+    stage: prod
   name: kuard
 spec:
   replicas: 1
@@ -12,6 +15,7 @@ spec:
       annotations:
         kubernetes.io/change-cause: "Upgrade to green kuard"
       labels:
+        app: cacete-dourado
         run: kuard
     spec:
       containers:

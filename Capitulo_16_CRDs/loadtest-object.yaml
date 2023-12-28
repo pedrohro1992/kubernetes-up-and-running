@@ -1,0 +1,8 @@
+apiVersion: beta.kuard.com/v1
+kind: LoadTest
+metadata:
+  name: my-loadtest
+spec:
+  service: my-service
+  scheme: https
+  requestPerSecond: 1000
